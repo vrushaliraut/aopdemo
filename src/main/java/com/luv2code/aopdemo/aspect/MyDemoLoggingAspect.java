@@ -10,8 +10,17 @@ public class MyDemoLoggingAspect {
     // this is where we add all of our related advices for logging
     // lets start with a @Before advice
 
-    @Before("execution(public void addAccount())")
-    //@Before("execution(public void updateAccount())")
+    // @Before("execution(public void addAccount())")
+
+    //@Before("execution(public void com.luv2code.aopdemo.dao.AccountDAO.addAccount())")
+
+    // @Before("execution(public void add*())")
+
+   // @Before("execution(void add*())") // PointCut expression match any return type
+
+    @Before("execution(* add*())") // PointCut expression match any return type
+
+    // @Before("execution(public void updateAccount())")
     public void beforeAddAccountAdvice() {
         System.out.println("\n=====>>> Executing @Before advice on addAccount()");
     }
