@@ -18,8 +18,16 @@ public class MyDemoLoggingAspect {
 
    // @Before("execution(void add*())") // PointCut expression match any return type
 
-    @Before("execution(* add*())") // PointCut expression match any return type
+   // @Before("execution(* add*())") // PointCut expression match any return type
 
+    //@Before("execution(* add*(com.luv2code.aopdemo.Account))") // PointCut expression match any return type
+
+    //@Before("execution(* add*(com.luv2code.aopdemo.Account, ..))")
+    // PointCut expression match any return type and any number of arguments
+
+    // Return type, package class method and param - wildcard matching
+
+    @Before("execution(* com.luv2code.aopdemo.dao.*.*(..))")
     // @Before("execution(public void updateAccount())")
     public void beforeAddAccountAdvice() {
         System.out.println("\n=====>>> Executing @Before advice on addAccount()");
